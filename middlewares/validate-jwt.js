@@ -15,7 +15,6 @@ export const validateJWT = async (req, res, next) => {
         if (!user) {
             return res.status(401).json({ msg: 'Token no válido - usuario no existe DB' });
         }
-
         if (!user.state) {
             return res.status(401).json({ msg: 'Token no válido - usuario con estado: false' });
         }
