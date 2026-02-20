@@ -8,6 +8,7 @@ import { dbConnection } from './mongo.js';
 import authRoutes from '../src/auth/auth.routes.js';
 import userRoutes from '../src/users/user.routes.js';
 import publicationRoutes from '../src/publications/publication.routes.js';
+import commentRoutes from '../src/comments/comment.routes.js';
 
 class Server {
     constructor() {
@@ -19,6 +20,7 @@ class Server {
             auth: '/api/auth',
             users: '/api/users',
             publications: '/api/publications',
+            comments: '/api/comments'
         }
 
         //Conectas a la base de datos
@@ -44,6 +46,7 @@ class Server {
         this.app.use(this.paths.auth, authRoutes);
         this.app.use(this.paths.users, userRoutes);
         this.app.use(this.paths.publications, publicationRoutes);
+        this.app.use(this.paths.comments, commentRoutes);
     }
 
     //Método para escuchar el servidor
